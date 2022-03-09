@@ -11,4 +11,16 @@ RSpec.describe MusicTracker do
     new_tracklist = MusicTracker.new("Playlist_1")
     expect { new_tracklist.add("") }.to raise_error "No track specified"
   end
+
+  it "adds multiple tracks to our playlist" do
+    new_tracklist = MusicTracker.new("Playlist_1")
+    new_tracklist.add("Road to nowhere")
+    new_tracklist.add("Move on up")
+    expect(new_tracklist.track_list).to eq ["Road to nowhere", "Move on up"]
+  end
+
+  it "throws an error when the tracklist is empty" do
+    new_tracklist = MusicTracker.new("Playlist_1")
+    expect { new_tracklist.track_list }.to raise_error "No songs on tracklist"
+  end
 end

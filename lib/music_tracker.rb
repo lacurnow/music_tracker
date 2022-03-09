@@ -10,6 +10,7 @@ class MusicTracker
   end
 
   def track_list
+    fail "No songs on tracklist" if @track_list.empty?
     @track_list
   end
 end
